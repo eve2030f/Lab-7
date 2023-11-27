@@ -1,0 +1,34 @@
+# Lab-7
+Universidad de Costa Rica Programación Bajo Plataformas Abiertas Escuela de Ingeniería Eléctrica
+Profesora: Carolina Trejos Quirós Evelyn Feng Wu B82870
+
+Laboratorio 7
+Este laboratorio tiene como finalidad unir los conocimientos de Bash scripting con Python scripting. Este se divide en 3 ejercicios.
+
+El primer ejercicio permite ingresar el PID buscado y con el módulo psutil en Python proporciona una interfaz para acceder a información sobre procesos y el sistema operativo. Con este se puede obtener información detallada sobre procesos individuales, como su ID, nombre, consumo de CPU, consumo de memoria, estado, padre, etc., así como el monitoreo en tiempo real del uso de recursos del sistema y procesos. De esta primera parte se obtuvo el siguiente resultado:
+
+---al ejecutar sale--- Ingrese el ID del proceso: 1632 ---resultado--- Nombre del proceso: gmain
+ID del proceso: 1632
+Parent process ID: 1354
+Usuario propietario: vboxuser
+Porcentaje de uso de CPU: 0.0
+Consumo de memoria: 3932160
+Estado: sleeping
+Path del ejecutable: /usr/libexec/gsd-disk-utility-notify
+
+El segundo código utiliza las módulos os, sys y time para importar datos. Estos módulos contienen funcionalidades básicas del sistema operativo, manipulación de argumentos de línea de comandos y manejo del tiempo. Así como el subprocess que nos permite trabajar con procesos externos, utilizado en este caso para iniciar procesos y de nuevo el psutil que se mencionó anteriormente. En cuanto a la función monitorear_proceso primero solicita al usuario el nombre del proceso y el comando para ejecutarlo. Luego verifica si el proceso especificado está en ejecución utilizando psutil y si no encuentra el proceso, imprime un mensaje y utiliza subprocess.Popen para iniciar el proceso con el comando proporcionado. Finalmente, espera 60 segundos antes de revisar nuevamente. Una vez ingresado un comando y un nombre de proceso que no está siendo ejecutado se obtiene el siguiente resultado:
+
+El proceso mi_proceso no está en ejecución. Iniciando...
+
+Finalmente, el último código la única librería nueva es matplotlib.pyplot as plt que permite crear gráficos y visualizaciones. En resumen, se comienza pidiendo la ruta del ejecutable, así como el rango de segundos que quiere que lo monitoree y los intervalos de los segundos correspondientes. La función contiene los argumentos de la ruta al ejecutable que se va a monitorear, e intervalo de tiempo (en segundos) entre cada lectura de consumo y la duración total del monitoreo (en segundos). Una vez inicializado se van registrando los datos del % de consumo de CPU y memoria. Una vez pasado el tiempo correspondiente se muestra la tabla con los datos de acuerdo a los intervalos seleccionados o escrito al inicio. Finalmente, como resultado se grafican los datos con plt donde el consumo ya sea del CPU o de la Memoria están en el eje y mientras que el tiempo se grafica en el eje x. La tabla de datos que se utiliza para graficar se guarda en un archivo llamado log_consumo.txt
+
+---resultado---
+
+Tiempo	Consumo_CPU (%)	Consumo_Memoria (bytes)
+0.0	  0.0	  123456
+1.00	10.2	124560
+2.00	15.4	125678
+3.00	12.6	126789
+...	...	...
+Código de GITHUB
+Usuario: eve2030f Link: https://github.com/eve2030f/Lab-7
